@@ -13,7 +13,10 @@ import {
 } from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Carousel from 'react-native-carousel';
+import Icon from 'react-native-vector-icons/Ionicons';  
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
+const Tab = createMaterialBottomTabNavigator();
 class home extends React.Component {
   constructor(props) {
     super(props);
@@ -88,6 +91,9 @@ class home extends React.Component {
       ],
     };
   }
+
+
+  
   render() {
     const {pictures,offers} = this.state;
     return (
@@ -99,20 +105,21 @@ class home extends React.Component {
                     <TouchableOpacity>
                     <Image
                     source={require('../assets/phone.png')}
-                        style={{height:50,width:30,resizeMode:'contain'}}>
+                        style={{height:50,width:30,resizeMode:'contain',marginLeft:5}}>
                     </Image>
                     </TouchableOpacity>
                     <TouchableOpacity>
                     <Image
                     source={require('../assets/cart.png')}
-                        style={{height:50,width:30,resizeMode:'contain'}}>
+                        style={{height:50,width:30,resizeMode:'contain',marginRight:7}}>
                     </Image>
                     </TouchableOpacity>
              </View>
-<ScrollView>
+<ScrollView showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
         <View style={{flex: 2, backgroundColor: 'red'}}>
           <View style={{backgroundColor: 'white', flex: 2}}>
             <FlatList
+            showsHorizontalScrollIndicator={false}
               horizontal
               data={pictures}
               renderItem={({item}) => {
@@ -225,10 +232,10 @@ class home extends React.Component {
 
         </View>
 
-        <View style={{flex:0.8,flexDirection:'row',backgroundColor:'#D3D3D3',justifyContent:'space-between'}}>
-            <Text style={{color:'black',marginTop:20}}>Dignostic Packages by Zyolo Labs</Text>
+        <View style={{flex:1.5,flexDirection:'row',backgroundColor:'#D3D3D3',justifyContent:'space-between'}}>
+            <Text style={{color:'black',marginTop:20,marginBottom:15,marginLeft:5}}>Dignostic Packages by Zyolo Labs</Text>
             <TouchableOpacity>
-            <Text style={{color:'orange',marginTop:20}}>View All</Text>
+            <Text style={{color:'orange',marginTop:20,marginBottom:15,marginRight:5}}>View All</Text>
             </TouchableOpacity>
         </View>
 
@@ -240,6 +247,7 @@ class home extends React.Component {
             justifyContent: 'space-between',
           }}>
           <FlatList
+          showsHorizontalScrollIndicator={false}
           horizontal
           data={offers}
           renderItem={({item})=>{
@@ -252,9 +260,9 @@ class home extends React.Component {
                     </Text>
                     </View>
                  </View>
-                 <View style={{backgroundColor:'#FFF',flex:1}}>
+                 <View style={{backgroundColor:'#FFF',flex:1,borderBottomColor:'black',borderBottomWidth:0.4}}>
                      <Text>
-                         dfsdf
+                         dfsdfsrgsdhsd,mfgnskjedgfhliuwegfiuasgh
                      </Text>
                  </View>
              </View>     
@@ -271,7 +279,10 @@ class home extends React.Component {
 
         </ScrollView>
 
-        <View style={(styles.headerFooter,{flex:2,backgroundColor:'#0f0'})} />
+        <View style={(styles.headerFooter,{flex:2,backgroundColor:'#0f0',alignItems:'center'})}>
+            <Text> Nav bar will come here</Text>
+        </View>
+        
       </SafeAreaView>
     );
   }
